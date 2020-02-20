@@ -1,6 +1,6 @@
 # Homework-13
-Burger Logger: Node, Express, Handlebars
-Github Page: https://brittanymorrisdesign.github.io/Homework-13
+Burger Logger: Node, Express, Handlebars </br>
+Github Page: https://brittanymorrisdesign.github.io/Homework-13 </br>
 Live Demo:
 
 # Objective
