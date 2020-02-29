@@ -1,14 +1,7 @@
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Cheesburger", false);
-
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Mushroom Burger", false);
-
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Veggie Burger", false);
-
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("InNOut Burger", false);
-
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Bacon Cheeseburger", false);
+INSERT INTO burgers_db.burgers (burger_name, devoured)
+VALUES
+("Cheesburger", false),
+("Mushroom Burger", false),
+("Veggie Burger", false),
+("InNOut Burger", false),
+("Bacon Cheeseburger", false);
