@@ -21,8 +21,13 @@
     background-color: #86ceff;
   }
   
+  .container-fluid {
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .display-4 {
-    color: #ffffff;
+    color: #222f66;
     text-align: center;
     font-size: 30px;
     margin: 0 auto;
@@ -57,7 +62,7 @@
   label {
     margin: 0 0 1rem 0;
     font-style: normal;
-    color: #011330;
+    color: #222f66;
   }
   
   ul,
@@ -156,7 +161,6 @@
     top: -0.5em;
     padding: 0 1em;
     display: inline;
-    background-color: #000;
   }
   
   body .list-content {
