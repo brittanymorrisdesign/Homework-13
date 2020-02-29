@@ -50,6 +50,8 @@ const orm = {
       cb(result);
     });
   },
+
+  // Insert new burger into database
   create(table, cols, vals, cb) {
     let queryString = `INSERT INTO ${table}`;
 
@@ -70,7 +72,7 @@ const orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
+  // Update to a current burger
   update(table, objColVals, condition, cb) {
     let queryString = `UPDATE ${table}`;
 
@@ -88,7 +90,20 @@ const orm = {
       cb(result);
     });
   },
+  delete(table, condition, cb) {
+    let queryString = `DELETE FROM ${table}`;
+    queryString += ' WHERE ';
+    queryString += condition;
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  },
 };
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model (burger.js).
 module.exports = orm;
