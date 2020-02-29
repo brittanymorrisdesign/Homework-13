@@ -1,13 +1,20 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $('.delquote').on('click', function(event) {
+  // Change devour state on click of .change-devour
+  $('change-devoured').on('click', function(event) {
     const id = $(this).data('id');
+    const newDevour = $(this).data('newdevour');
 
-    // Send the DELETE request.
-    $.ajax(`/api/quotes/${id}`, {
-      type: 'DELETE',
+    const newDevouredState = {
+      devoured: newDevour,
+    };
+
+    // Send the PUT request.
+    $.ajax(`/api/burgers/${id}`, {
+      type: 'PUT',
+      data: newDevouredState,
     }).then(function() {
-      console.log('deleted id ', id);
+      console.log('changed devoured to', newDevour);
       // Reload the page to get the updated list
       location.reload();
     });
@@ -17,49 +24,37 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    const newQuote = {
-      author: $('#auth')
+    const newBurger = {
+      name: $('#burger')
         .val()
         .trim(),
-      quote: $('#quo')
+      devoured: $('[name=devoured]:checked')
         .val()
         .trim(),
     };
 
     // Send the POST request.
-    $.ajax('/api/quotes', {
+    $.ajax('/api/burgers', {
       type: 'POST',
-      data: newQuote,
+      data: newBurger,
     }).then(function() {
-      console.log('created new quote');
+      console.log('created new burger');
       // Reload the page to get the updated list
       location.reload();
     });
   });
+});
 
-  $('.update-form').on('submit', function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
+// Delete selected burger
+$('.delete-burger').on('click', function(event) {
+  const id = $(this).data('id');
 
-    const updatedQuote = {
-      author: $('#auth')
-        .val()
-        .trim(),
-      quote: $('#quo')
-        .val()
-        .trim(),
-    };
-
-    const id = $(this).data('id');
-
-    // Send the POST request.
-    $.ajax(`/api/quotes/${id}`, {
-      type: 'PUT',
-      data: updatedQuote,
-    }).then(function() {
-      console.log('updated quote');
-      // Reload the page to get the updated list
-      location.assign('/');
-    });
+  // Send the DELETE request.
+  $.ajax(`/api/burgers/${id}`, {
+    type: 'DELETE',
+  }).then(function() {
+    console.log('deleted burger', id);
+    // Reload the page to get the updated list
+    location.reload();
   });
 });
