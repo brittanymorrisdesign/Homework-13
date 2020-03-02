@@ -2,6 +2,7 @@
 $(function() {
   // Change devour state on click of .change-devour
   $('.change-devour').on('click', function(event) {
+    event.preventDefault();
     const id = $(this).data('id');
     const newDevour = $(this).data('newdevour');
 
@@ -28,9 +29,7 @@ $(function() {
       name: $('#br')
         .val()
         .trim(),
-      devoured: $('[name=devoured]:checked')
-        .val()
-        .trim(),
+      devoured: false,
     };
 
     // Send the POST request.
@@ -46,6 +45,7 @@ $(function() {
 
   // Delete selected burger
   $('.delete-burger').on('click', function(event) {
+    event.preventDefault();
     const id = $(this).data('id');
 
     // Send the DELETE request.
