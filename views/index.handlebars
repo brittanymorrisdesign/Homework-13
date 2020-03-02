@@ -1,49 +1,52 @@
 <div class="jumbotron">
-<div class="burgerImage"><img src="/images/burger_image.jpg" alt="burgers">
-  <p class="lead text-center">Add or devour a delicious burger!</p>
-</div>
+  <div class="burgerImage"><img src="/assets/images/burger_image.jpg" alt="burgers">
+    <p class="lead text-center">Add or devour a delicious burger!</p>
+  </div>
 </div>
 
 <div class="container-fluid">
-<p class="intro text-center">Add a burger to the "Not Devoured" section. Once added, you can devour the burger and it will be moved to the "Devoured" section.</p>
+  <p class="intro text-center">Add a burger to the "Not Devoured" section. Once added, you can devour the burger and it
+    will be moved to the "Devoured" section.</p>
 
-<div class="burger-lists mt-5 d-flex flex-column flex-sm-row justify-content-between">
-  <div class="undevoured-list list-box my-2 my-sm-0 mr-sm-2">
-    <h2 class="list-title">Not devoured:</h2>
-    <p id="not-d-message" style="display:none">Empty!</p>
-    <ul class="list-content" id="not-d-list">
-      {{#each notEaten}}
-          {{> burgers/burger-block devour=true}}
-        {{else}}
-        <p>Add a burger.</p>
-      {{/each}} 
-    </ul>
+  <div class="burger-lists mt-5 d-flex flex-column flex-sm-row justify-content-between">
+    <div class="undevoured-list list-box my-2 my-sm-0 mr-sm-2">
+      <h2 class="list-title">Not devoured:</h2>
+      <p id="not-d-message" style="display:none">Empty!</p>
+      <ul class="list-content" id="not-d-list">
+        {{#each burgers}}
+          {{#if devoured}}
+            {{> burgers/burger-block devour=true}}
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="devoured-list list-box my-2 my-sm-0 ml-sm-2">
+      <h2 class="list-title ">Devoured:</h2>
+      <p id="d-message" style="display:none">Empty!</p>
+      <ul class="list-content" id="not-d-list">
+        {{#each burgers}}
+          {{#if devoured}}
+            {{> burgers/burger-block devour=false}}
+          {{/if}}
+        {{/each}}
+        
+      </ul>
+    </div>
   </div>
 
-  <div class="devoured-list list-box my-2 my-sm-0 ml-sm-2">
-    <h2 class="list-title ">Devoured:</h2>
-    <p id="d-message" style="display:none">Empty!</p>
-    <ul class="list-content" id="not-d-list">
-      {{#each eaten}}
-          {{> burgers/burger-block devour=false}}
-        {{else}}
-        <p>Nothing devoured yet.</p>
-      {{/each}}
-    </ul>
-  </div>
-</div>
-
-<div class="add-burger-section mt-4">
-  <h2>Add a Burger</h2>
-  <form class="create-form">
-    <div class="form-group">
-      <div class="input-group mb-3">
-        <input type="text" id="ca" name="burger_name" class="form-control" placeholder="Burger Name" aria-label="Burger Name" aria-describedby="button-addon2">
-        <div class="input-group-append">
-          <button class="add-burger-btn" type="submit" id="button-addon2">Add Burger</button>
+  <div class="add-burger-section mt-4">
+    <h2>Add a Burger</h2>
+    <form class="create-form">
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <input type="text" id="br" name="burger_name" class="form-control" placeholder="Burger Name"
+            aria-label="Burger Name" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="add-burger-btn" type="submit" id="button-addon2">Add Burger</button>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>
