@@ -1,7 +1,6 @@
-INSERT INTO burgers_db.burgers (burger_name, devoured)
+INSERT INTO cat_db.cats (name, sleepy)
 VALUES
-("Cheesburger", false),
-("Mushroom Burger", false),
-("Veggie Burger", false),
-("InNOut Burger", false),
-("Bacon Cheeseburger", false);
+('Sylvester', true),
+('Marilyn Manson', true),
+('Joe Biden', true),
+('Owens', true);
