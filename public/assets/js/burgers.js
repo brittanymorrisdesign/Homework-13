@@ -7,8 +7,9 @@ $(function() {
     const newDevour = $(this).data('newdevour');
 
     const newDevouredState = {
-      devoured: newDevour,
+      devoured: true,
     };
+    console.log(newDevouredState);
 
     // Send the PUT request.
     $.ajax(`/api/burgers/${id}`, {
@@ -39,7 +40,7 @@ $(function() {
     }).then(function() {
       console.log('created new burger');
       // Reload the page to get the updated list
-      location.reload();
+      // location.reload();
     });
   });
 

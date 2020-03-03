@@ -17,10 +17,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/api/burgers', function(req, res) {
-  console.log(req.body);
+  let devoured = 0;
+  if (req.body.devoured === 'true') {
+    devoured = 1;
+  }
   burger.create(
     ['burger_name', 'devoured'],
-    // [req.body.burger_name, req.body.devoured],
+    [req.body.name, devoured],
     function(result) {
       console.log(result);
       // Send back the ID of the new burger
